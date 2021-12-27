@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Righteous&display=swap');
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            background: #b92b27;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        h1 {
+            font-family: 'Righteous', cursive;
+            color: #fff;
+            text-align: center;
+            letter-spacing: 10px;
+            font-weight: 600;
+            font-size: 35px;
+        }
+        p {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        .sticky-content {
+            position: relative;
+            text-align: center;
+            max-width: fit-content;
+            font-family: 'Poppins', sans-serif;
+            left: 38%;
+            border-radius: 0.7rem;
+            padding: 15px 25px;
+            color: #fff;
+            background: #8360c3;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            transition: left 0.6s ease-in-out;
+        }
+        .sticky-content p {
+            color: #fff;
+        }
+        .sticky {
+            position: fixed;
+            /* top: 20px; */
+            /* left: 20px; */
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Nowhere</h1>
+
+    <div id="myHeader" class="sticky-content">
+        <p>Hey there How are you</p>
+         <p>You are <span id="toper">0</span>px from top</p>
+    </div>
+
+
+    <div style="height: 500px;"></div>
+    <p> wanna Scroll? </p>
+    <div style="height: 100vh;"></div>
+    <p> still here? </p>
+    <div style="height: 100vh;"></div>
+    <p> what do you want? </p>
+    <div style="height: 100vh;"></div>
+    <p> go away </p>
+    <div style="height: 100vh;"></div>
+
+    <script>
+        var header = document.getElementById("myHeader");
+        var toper = document.getElementById("toper");
+        var headerHeight = header.offsetTop;
+
+        document.addEventListener("scroll", ()=> {
+            // console.log(header.offsetTop);
+            toper.innerHTML = window.pageYOffset
+            if (window.pageYOffset > headerHeight) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        })
+    </script>
+</body>
+</html>
